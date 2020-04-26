@@ -9,11 +9,15 @@ const pitts = {
 }
 const indicate = {
   sun: "https://cdn.pixabay.com/photo/2013/07/13/10/23/sun-157126_1280.png",
-  rain: "https://cdn.pixabay.com/photo/2018/05/31/13/13/rain-3443977_1280.jpg"
+  rain: "https://cdn.pixabay.com/photo/2018/05/31/13/13/rain-3443977_1280.jpg",
+  thunderstorm: "https://cdn.pixabay.com/photo/2013/04/01/09/22/thunderstorm-98541_1280.png",
+  snow: "https://cdn.pixabay.com/photo/2014/04/02/14/10/cloud-306404_1280.png",
+  drizzle: "https://cdn.pixabay.com/photo/2016/03/31/15/03/background-1292963_1280.png",
+  cloudy: "https://cdn.pixabay.com/photo/2014/04/03/11/56/clouds-312651_1280.png"
 }
 
 const HomePage = () => {
-  const  [, setErrors] =  useState(false)
+  const  [errors, setErrors] =  useState(false)
   const  [weather,setWeather ]= useState({})
 
   async function getWeather() {
@@ -29,7 +33,10 @@ const HomePage = () => {
         })
         console.log(resp)
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err)
+        console.log(errors)
+      });
   }
   function convert(k) {
     k += -273.15
@@ -38,8 +45,17 @@ const HomePage = () => {
     return Math.round(f) + '°F'
   }
   function photo() {
-    if (weather.currentDescription === 'Rain') {
+    let itIs = weather.currentDescription
+    if ( itIs === 'Rain') {
       return `url(${indicate.rain})`
+    } else if (itIs === 'Thunderstorm') {
+      return `url(${indicate.thunderstorm})`
+    } else if (itIs === 'Drizzle') {
+      return `url(${indicate.drizzle})`
+    } else if (itIs === 'Clouds') {
+      return `url(${indicate.cloudy})`
+    } else if (itIs === 'Snow') {
+      return  `url(${indicate.snow})`
     } else {
       return `url(${indicate.sun})`
     }
