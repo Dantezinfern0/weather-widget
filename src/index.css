@@ -9,7 +9,32 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: seagreen;
+}
+section {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: blueviolet;
+  border-radius: 12px;
+  padding: 1rem;
+  color:ivory;
+  border-width: 4px;
+  border-color: black;
+  border-style: solid;
 }
 ul {
   list-style: none;
+}
+#indicator {
+  width: 100px;
+  height: 100px;
+}
+.background-ivory {
+  background-color: ivory;
+}
+.center-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
