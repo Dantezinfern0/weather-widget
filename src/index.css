@@ -22,15 +22,9 @@ section {
   border-color: black;
   border-style: solid;
 }
-ul {
-  list-style: none;
-}
 #indicator {
   width: 100px;
   height: 100px;
-}
-.background-ivory {
-  background-color: ivory;
 }
 .center-flex {
   display: flex;
